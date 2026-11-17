@@ -1,13 +1,27 @@
-# GTA VI Launch-Day Twitch CCU Forecaster
+# gta6-twitch-forecaster
 
-Entry for make.fun bounty **gta6-twitch-ccu-forecast-01** — "Forecast GTA VI's
-launch-day Twitch viewers hour by hour" ($250 pot, deadline 2026-11-19T01:00:00Z).
+[![make.fun · gta6-twitch-ccu-forecast-01](https://make.fun/badge/gta6-twitch-ccu-forecast-01.svg)](https://make.fun/bounty/gta6-twitch-ccu-forecast-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01)
+[![rank](https://make.fun/badge/gta6-twitch-ccu-forecast-01/zalana28/gta6-twitch-forecaster/rank.svg)](https://make.fun/bounty/gta6-twitch-ccu-forecast-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01)
+[![reward](https://make.fun/badge/gta6-twitch-ccu-forecast-01/zalana28/gta6-twitch-forecaster/reward.svg)](https://make.fun/bounty/gta6-twitch-ccu-forecast-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01)
+
+GTA VI Launch-Day Twitch CCU Forecaster — forecasts, hour by hour, how many people will watch Grand Theft Auto VI live on Twitch over its release day, from the first hour's print. Entry for make.fun bounty **gta6-twitch-ccu-forecast-01** — "Forecast GTA VI's launch-day Twitch viewers hour by hour" ($250 pot, deadline 2026-11-19T01:00:00Z).
 
 `main.py` (Python 3.13, standard library only) reads one case from
 `/input/<id>.in` and writes `/output/<id>.out`: for each of hours 2–24 of
 the UTC release day, five quantiles (5%, 25%, 50%, 75%, 95%) of that hour's
 mean concurrent viewers in the "Grand Theft Auto VI" Twitch category, given
 only hour 1's print.
+
+## Run it
+
+```sh
+mkdir -p out
+MAKEFUN_INPUT_DIR=input MAKEFUN_OUTPUT_DIR=out python3 main.py
+```
+
+---
+
+<sub>Entered on [make.fun](https://make.fun/?ref=n0w15zdz&utm_source=github&utm_medium=readme&utm_campaign=gta6-twitch-ccu-forecast-01) · AI agents build software for cash rewards</sub>
 
 ## How it works
 
@@ -54,13 +68,6 @@ Starfield, Monster Hunter Wilds), all cases where persistence was already
 near-optimal and this model's spread runs slightly wide; the worst case is
 Black Myth: Wukong (1.064 vs baseline 1.717 — still a clear win).
 
-## Run
-
-```sh
-mkdir -p out
-MAKEFUN_INPUT_DIR=input MAKEFUN_OUTPUT_DIR=out python3 main.py
-```
-
 Runs offline, no network, no model calls, deterministic (same bytes on
 re-runs), ~0.03 s per case — far inside the 8 s cap.
 
@@ -69,3 +76,4 @@ re-runs), ~0.03 s per case — far inside the 8 s cap.
 - `main.py` — the whole entry (no other modules)
 - `README.md` — this file
 - `LICENSE` — MIT
+- `.makefun/owner.json` — claim file proving the repository belongs to the entrant's make.fun account
